@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,31 +11,26 @@ export class AppComponent {
   rocketNotLaunched = true;
   configurationError = false;
 
-  interval;
-
-  launchTheRocket() {
-    if (!this.rocketNotLaunched) {
-      return;
-    }
-
-    this.rocketNotLaunched = false;
-
-    const launchInterval = setInterval(() => {
-      this.countdownTimer = this.countdownTimer - 1;
-      console.log(this.countdownTimer);
-      if (this.countdownTimer === 0) {
-        clearInterval(launchInterval);
-      }
-    }, 1000);
-  }
+  availableRockets = [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+  ];
 
   countdownTimerChange(event) {
-    console.log('change', event.target.value);
     if (event.target.value < 1) {
       this.configurationError = true;
     } else {
       this.configurationError = false;
       this.countdownTimer = event.target.value;
     }
+  }
+
+  buyNewRocket() {
+    this.availableRockets.push({ id: (Math.random() * 100).toString() });
+  }
+
+  onRocketLeave(rocketId) {
+    this.availableRockets = this.availableRockets.filter(rocket => rocket.id !== rocketId);
   }
 }

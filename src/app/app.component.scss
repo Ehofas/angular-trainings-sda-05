@@ -35,3 +35,12 @@ input.error {
 span.error {
   color: $error_color;
 }
+
+app-app-rocket {
+  transition: all 2500ms ease-in;
+
+  &.launched {
+    opacity: 0.6;
+    transform: translate(0, -300px);
+  }
+}

@@ -368,11 +368,19 @@
 <button class="launch-button"
         [disabled]="configurationError"
         [class.leaving]="!rocketNotLaunched"
-        (click)="launchTheRocket()">
-  LAUNCH
+        (click)="buyNewRocket()">
+  Buy rocket
 </button>
 
 
-<app-app-rocket></app-app-rocket>
+<div style="display: inline-flex">
+  <app-app-rocket *ngFor="let rocket of availableRockets"
+                  (click)="rocket.launched = true"
+                  (rocketLeave)="onRocketLeave($event)"
+                  [class.launched]="rocket.launched"
+                  [launched]="rocket.launched"
+                  [rocketId]="rocket.id">
+  </app-app-rocket>
+</div>
 
 <router-outlet></router-outlet>
