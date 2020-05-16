@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
 export class AppRocketComponent implements OnInit, OnChanges {
 
   @Input() rocketId: string;
+  @Input() name: string;
   @Input() launched: boolean;
 
   @Output() rocketLeave = new EventEmitter<any>();
@@ -16,8 +17,6 @@ export class AppRocketComponent implements OnInit, OnChanges {
   ngOnInit() {
     console.log('I am rocket number ', this.rocketId);
   }
-
-  //
 
   ngOnChanges() {
     console.log(this.rocketId, ' is launched:', this.launched);

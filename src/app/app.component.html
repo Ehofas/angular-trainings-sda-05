@@ -365,12 +365,12 @@
        (keyup)="countdownTimerChange($event)"
 />
 
-<button class="launch-button"
-        [disabled]="configurationError"
-        [class.leaving]="!rocketNotLaunched"
-        (click)="buyNewRocket()">
-  Buy rocket
-</button>
+<!--<button class="launch-button"-->
+<!--        [disabled]="configurationError"-->
+<!--        [class.leaving]="!rocketNotLaunched"-->
+<!--        (click)="buyNewRocket()">-->
+<!--  Buy rocket-->
+<!--</button>-->
 
 
 <div style="display: inline-flex">
@@ -379,8 +379,17 @@
                   (rocketLeave)="onRocketLeave($event)"
                   [class.launched]="rocket.launched"
                   [launched]="rocket.launched"
+                  [name]="rocket.name"
                   [rocketId]="rocket.id">
   </app-app-rocket>
 </div>
+
+<br>
+<br>
+<br>
+
+<app-rocket-form (createRocket)="buyNewRocket($event)">
+
+</app-rocket-form>
 
 <router-outlet></router-outlet>

@@ -26,8 +26,16 @@ export class AppComponent {
     }
   }
 
-  buyNewRocket() {
-    this.availableRockets.push({ id: (Math.random() * 100).toString() });
+  buyNewRocket(rocket) {
+
+    const rocketWasFound = this.availableRockets.find(r => r.id === rocket.id);
+
+    if (rocketWasFound) {
+      alert('Rocket with this ID already exists!');
+      return;
+    }
+
+    this.availableRockets.push(rocket);
   }
 
   onRocketLeave(rocketId) {
