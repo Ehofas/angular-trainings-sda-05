@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   buyNewRocket(rocket) {
-
+    console.log('rocket', rocket);
     const rocketWasFound = this.availableRockets.find(r => r.id === rocket.id);
 
     if (rocketWasFound) {

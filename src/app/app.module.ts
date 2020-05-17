@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { AppRocketComponent } from './app-rocket/app-rocket.component';
 import { RocketFormComponent } from './rocket-form/rocket-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppRocketComponent,
-    RocketFormComponent
+    RocketFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

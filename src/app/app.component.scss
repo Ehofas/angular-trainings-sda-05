@@ -44,3 +44,13 @@ app-app-rocket {
     transform: translate(0, -300px);
   }
 }
+
+a.nav-link {
+  color: white;
+  padding-right: 8px;
+
+  &.amazing {
+    color: #A10A27;
+    font-weight: bold;
+  }
+}
