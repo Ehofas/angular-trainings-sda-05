@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppRocketComponent } from './app-rocket/app-rocket.component';
-import { RocketFormComponent } from './rocket-form/rocket-form.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRocketComponent } from './components/app-rocket/app-rocket.component';
+import { RocketFormComponent } from './components/rocket-form/rocket-form.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'rocket', component: AppRocketComponent },
-  { path: 'form', component: RocketFormComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'rocket', component: AppRocketComponent, canActivate: [AuthGuard] },
+  { path: 'form', component: RocketFormComponent,  canActivate: [AuthGuard] },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'}
 ];

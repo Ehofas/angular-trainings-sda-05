@@ -301,6 +301,9 @@
 
 
   <div class="spacer"></div>
+
+  <a *ngIf="authenticated" (click)="logout()"> Logout</a>
+
   <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
 
     <svg id="twitter-logo" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg"

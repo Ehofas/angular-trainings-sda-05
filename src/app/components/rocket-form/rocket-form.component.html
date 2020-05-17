@@ -1,0 +1,27 @@
+<div [formGroup]="rocketModel">
+
+
+  <div *ngFor="let input of rocketFormConfiguration">
+
+    <input [placeholder]="input.placeholder"
+           [class.error]="rocketModel.controls[input.key].errors"
+           [formControlName]="input.key"
+           [required]="input.required"/>
+
+    <br>
+
+    <span style="color: red; font-size: 10px"
+          *ngIf="rocketModel.controls[input.key].errors">
+      {{ input.errorMessage }}
+    </span>
+
+    <br>
+  </div>
+
+  <button class="submit"
+          (click)="onFormSubmit()"
+          [disabled]="!rocketModel.valid">
+    Create rocket!
+  </button>
+
+</div>
